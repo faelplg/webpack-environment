@@ -1,0 +1,40 @@
+{
+  "name": "webpack-environment",
+  "version": "0.1.0",
+  "description": "Webpack development environment (Personal LTS).",
+  "private": "true",
+  "scripts": {
+    "watch:development": "webpack --watch --config development.config.js",
+    "build:test": "webpack",
+    "build:development": "webpack --config development.config.js",
+    "build:production": "webpack --config production.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faelplg/webpack-environment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/faelplg/webpack-environment/issues"
+  },
+  "homepage": "https://github.com/faelplg/webpack-environment#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^2.0.1",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
+}
