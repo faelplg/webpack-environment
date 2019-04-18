@@ -1,18 +1,15 @@
-import _ from 'lodash';
+// import _ from 'lodash';
+// import printMe from './print'
+// function component() {
+//   element.innerHTML = _.join(['We', 'are', 'huge!'], ' ');
+//   element.classList.add('hello');
+//   printMe();
+//   return element;
+// }
+// const __wrapper = document.querySelector('.wrapper');
+// __wrapper.appendChild(component());
+// console.log('From index.js', __wrapper);
 import './style.css';
-import printMe from './print'
+import profileImg from './theme/assets/profile_img.jpg';
 
-function component() {
-  let element = document.createElement('div');
-
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-
-  //  Calling print.js
-  printMe();
-
-  return element;
-}
-
-console.log('From index.js');
-document.body.appendChild(component());
+console.log('Profile page.', profileImg);
