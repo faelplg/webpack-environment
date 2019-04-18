@@ -1,3 +1,6 @@
+/**
+ * Portfolio webpack development build.
+ */
 const path = require('path');
 /**
  * Html load strategies - [html-webpack-plugin template option]{@link https://github.com/jantimon/html-webpack-plugin/blob/master/docs/template-option.md}.
@@ -11,9 +14,6 @@ process.env.NODE_ENV = 'development';
 module.exports = {
   mode: 'development',
   entry: {
-    /** Change for building the selected project. */
-    // app: './portfolio-src/index.js',
-    // print: './portfolio-src/print.js'
     app: './src/index.js',
     print: './src/print.js'
   },
@@ -24,8 +24,6 @@ module.exports = {
      * Html webpack template advanced config - [html-webpack-template]{@link https://github.com/jaketrent/html-webpack-template}
      */
     new HtmlWebpackPlugin({
-      /** Change for building the selected project. */
-      // template: './portfolio-src/index.html'
       template: './src/index.html'
     }),
     new MiniCssExtractPlugin({

@@ -6,9 +6,9 @@
   "scripts": {
     "serve": "webpack-dev-server -d --hot --inline",
     "serve:dashboard": "webpack-dashboard -- webpack-dev-server --hot --inline",
-    "watch:development": "webpack --watch --config development.config.js",
-    "build:development": "webpack --config development.config.js",
-    "build:production": "webpack --config production.config.js",
+    "watch:development": "webpack --watch --config webpack.dev.config.js",
+    "build:development": "webpack --config webpack.dev.config.js",
+    "build:production": "webpack --config webpack.prod.config.js",
     "build:test": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
