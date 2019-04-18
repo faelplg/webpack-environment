@@ -5,12 +5,11 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 
-process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'development';
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: {
     /** Change for building the selected project. */
     // app: './portfolio/index.js',
@@ -18,6 +17,7 @@ module.exports = {
     app: './src/index.js',
     print: './src/print.js'
   },
+  devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(),
     /**
@@ -27,15 +27,12 @@ module.exports = {
       /** Uncomment if not using file template. */
       // title: 'Page title template auto-generated.',
       /** Change for building the selected project. */
-      // template: './portfolio/index.html',
+      // template: './portfolio/index.html'
       template: './src/index.html'
-      chunks: ['app', 'print'],
-      filename: 'index.html'
     }),
     new MiniCssExtractPlugin({
       filename: 'styles.css'
-    }),
-    new OptimizeCSSAssets() // call the css optimizer (minification)
+    })
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -82,5 +79,10 @@ module.exports = {
         }
       }]
     }]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    open: true
   }
 };
