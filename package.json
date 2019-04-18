@@ -8,8 +8,8 @@
     "serve:dashboard": "webpack-dashboard -- webpack-dev-server --hot --inline",
     "watch:development": "webpack --watch --config development.config.js",
     "build:development": "webpack --config development.config.js",
-    "build:test": "webpack",
     "build:production": "webpack --config production.config.js",
+    "build:test": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/faelplg/webpack-environment.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "faelplg",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/faelplg/webpack-environment/issues"

@@ -12,8 +12,8 @@ module.exports = {
   mode: 'development',
   entry: {
     /** Change for building the selected project. */
-    // app: './portfolio/index.js',
-    // print: './portfolio/print.js'
+    // app: './portfolio-src/index.js',
+    // print: './portfolio-src/print.js'
     app: './src/index.js',
     print: './src/print.js'
   },
@@ -24,10 +24,8 @@ module.exports = {
      * Html webpack template advanced config - [html-webpack-template]{@link https://github.com/jaketrent/html-webpack-template}
      */
     new HtmlWebpackPlugin({
-      /** Uncomment if not using file template. */
-      // title: 'Page title template auto-generated.',
       /** Change for building the selected project. */
-      // template: './portfolio/index.html'
+      // template: './portfolio-src/index.html'
       template: './src/index.html'
     }),
     new MiniCssExtractPlugin({

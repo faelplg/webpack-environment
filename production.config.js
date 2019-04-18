@@ -5,6 +5,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+/** PRODUCTION ONLY! */
 const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 
 process.env.NODE_ENV = 'production';
@@ -13,8 +14,8 @@ module.exports = {
   mode: 'production',
   entry: {
     /** Change for building the selected project. */
-    // app: './portfolio/index.js',
-    // print: './portfolio/print.js'
+    // app: './portfolio-src/index.js',
+    // print: './portfolio-src/print.js'
     app: './src/index.js',
     print: './src/print.js'
   },
@@ -24,22 +25,24 @@ module.exports = {
      * Html webpack template advanced config - [html-webpack-template]{@link https://github.com/jaketrent/html-webpack-template}
      */
     new HtmlWebpackPlugin({
-      /** Uncomment if not using file template. */
-      // title: 'Page title template auto-generated.',
       /** Change for building the selected project. */
-      // template: './portfolio/index.html',
-      template: './src/index.html'
+      // template: './portfolio-src/index.html',
+      template: './src/index.html',
       chunks: ['app', 'print'],
       filename: 'index.html'
     }),
+    /** Compile into ./styles.css file. */
     new MiniCssExtractPlugin({
       filename: 'styles.css'
     }),
-    new OptimizeCSSAssets() // call the css optimizer (minification)
+    /** Call the css optimizer (minification). */
+    /** PRODUCTION ONLY! */
+    new OptimizeCSSAssets()
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    /** Removed '.bundle' file suffix. */
+    filename: '[name].js'
   },
   optimization: {
     splitChunks: {
