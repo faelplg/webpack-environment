@@ -12,10 +12,10 @@ module.exports = {
   mode: 'development',
   entry: {
     /** Change for building the selected project. */
-    // app: './portfolio/index.js',
-    // print: './portfolio/print.js'
-    app: './src/index.js',
-    print: './src/print.js'
+    // app: './src/index.js',
+    // print: './src/print.js'
+    app: './portfolio/index.js',
+    print: './portfolio/print.js'
   },
   devtool: 'inline-source-map',
   plugins: [
@@ -27,8 +27,8 @@ module.exports = {
       /** Uncomment if not using file template. */
       // title: 'Page title template auto-generated.',
       /** Change for building the selected project. */
-      // template: './portfolio/index.html'
-      template: './src/index.html'
+      // template: './src/index.html'
+      template: './portfolio/index.html'
     }),
     new DashboardPlugin()
   ],

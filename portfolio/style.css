@@ -1,0 +1,83 @@
+/**
+ * Responsivity checkpoints.
+ * phone_only: 599px;
+ * tablet_portrait_min: 600px;
+ * tablet_portrait_max: 899px;
+ * tablet_landscape_min: 900px;
+ * tablet_landscape_max: 1199px;
+ * desktop_min: 1200px;
+ * desktop_max: 1799px;
+ * big_desktop_min: 1800px;
+ */
+
+/** Palette variables.*/
+:root {
+  --blue: blue;
+  --purple: purple;
+  --red: red;
+  --yellow: #fff350;
+  --amber: #ffc107;
+}
+
+html,
+body,
+.wrapper {
+  height: 100%;
+}
+html,
+body{
+  overflow: hidden;
+}
+body {
+  margin: 0;
+}
+
+/** Native containers. */
+div, section {
+  box-sizing: border-box;
+}
+
+/** (Flex) Container styles. */
+.container {
+  display: flex;
+  padding: 16px;
+  height: 100%;
+}
+@media only screen and (max-width: 599px) {
+  .container {
+    padding: 8px;
+  }
+}
+.container--dense {
+  padding: 8px;
+}
+.container--raw {
+  padding: 0;
+}
+.container,
+.container--vertical {
+  flex-flow: column;
+}
+.container--horizontal {
+  flex-flow: row;
+}
+/** (Box) Container styles */
+.box {
+  flex: auto;
+}
+.box--shrink {
+  flex: initial;
+}
+/** FlexBox alignment */
+.align-items--center {
+  align-items: center;
+}
+.align-items--end {
+  align-items: flex-end;
+}
+.justify-content--center {
+  justify-content: center;
+}
+
+/** Importing theme. */
+@import './theme/theme.css';
