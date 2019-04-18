@@ -12,10 +12,10 @@ module.exports = {
   mode: 'development',
   entry: {
     /** Change for building the selected project. */
-    // app: './src/index.js',
-    // print: './src/print.js'
-    app: './portfolio/index.js',
-    print: './portfolio/print.js'
+    // app: './portfolio-src/index.js',
+    // print: './portfolio-src/print.js'
+    app: './src/index.js',
+    print: './src/print.js'
   },
   devtool: 'inline-source-map',
   plugins: [
@@ -24,11 +24,9 @@ module.exports = {
      * Html webpack template advanced config - [html-webpack-template]{@link https://github.com/jaketrent/html-webpack-template}
      */
     new HtmlWebpackPlugin({
-      /** Uncomment if not using file template. */
-      // title: 'Page title template auto-generated.',
       /** Change for building the selected project. */
-      // template: './src/index.html'
-      template: './portfolio/index.html'
+      // template: './portfolio-src/index.html'
+      template: './src/index.html'
     }),
     new MiniCssExtractPlugin({
       filename: 'styles.css'
