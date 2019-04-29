@@ -1,2 +1,5 @@
 node_modules/
 polymer3-src/
+styleguide/
+portfolio-src/
+dist/
