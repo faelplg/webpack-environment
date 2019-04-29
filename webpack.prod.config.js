@@ -13,8 +13,8 @@ process.env.NODE_ENV = 'production';
 module.exports = {
   mode: 'production',
   entry: {
-    app: './portfolio-src/index.js',
-    print: './portfolio-src/print.js'
+    app: './src/index.js',
+    print: './src/print.js'
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -22,7 +22,7 @@ module.exports = {
      * Html webpack template advanced config - [html-webpack-template]{@link https://github.com/jaketrent/html-webpack-template}
      */
     new HtmlWebpackPlugin({
-      template: './portfolio-src/index.html',
+      template: './src/index.html',
       chunks: ['app', 'print'],
       filename: 'index.html'
     }),
