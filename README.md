@@ -1,8 +1,10 @@
 # webpack-environment
 Webpack development environment (Personal LTS).
 
-## Next work
-* Manage multiple 'src/' directories.
+## Tested with
+
+* npm v5.6.0;
+* Node v10.15.3;
 
 ## Changelog
 \# | update                     | version | updated at  

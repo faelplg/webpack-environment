@@ -43,7 +43,7 @@ div, section {
   padding: 16px;
   height: 100%;
 }
-@media only screen and (max-width: 599px) {
+@media only screen and (max-width: 767px) {
   .container {
     padding: 8px;
   }
