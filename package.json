@@ -10,7 +10,7 @@
     "build:development": "webpack --config webpack.dev.config.js",
     "build:production": "webpack --config webpack.prod.config.js",
     "build:test": "webpack",
-    "portfolio:document:css": "kss --source portfolio-src/ --homepage STYLEGUIDE.md --title Portfolio --css ../portfolio-src/components/components.css",
+    "portfolio:doc:css": "kss --source portfolio/ --homepage STYLEGUIDE.md --title Portfolio --css ../portfolio/theme/theme.css --css ../portfolio/components/components.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

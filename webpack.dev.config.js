@@ -14,8 +14,8 @@ process.env.NODE_ENV = 'development';
 module.exports = {
   mode: 'development',
   entry: {
-    app: './portfolio-src/index.js',
-    print: './portfolio-src/print.js'
+    app: './portfolio/index.js',
+    print: './portfolio/print.js'
   },
   devtool: 'inline-source-map',
   plugins: [
@@ -24,7 +24,7 @@ module.exports = {
      * Html webpack template advanced config - [html-webpack-template]{@link https://github.com/jaketrent/html-webpack-template}
      */
     new HtmlWebpackPlugin({
-      template: './portfolio-src/index.html'
+      template: './portfolio/index.html'
     }),
     new MiniCssExtractPlugin({
       filename: 'styles.css'
