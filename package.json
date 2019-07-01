@@ -10,8 +10,19 @@
     "build:development": "webpack --config webpack.dev.config.js",
     "build:production": "webpack --config webpack.prod.config.js",
     "build:test": "webpack",
-    "portfolio:document:css": "kss --source portfolio-src/ --homepage STYLEGUIDE.md --title Portfolio --css ../portfolio-src/components/components.css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "portfolio:doc:css": "kss --source portfolio/ --homepage STYLEGUIDE.md --title Portfolio --css ../portfolio/theme/theme.css --css ../portfolio/components/components.css",
+    "portfolio:doc:js": "jsdoc src -r -R ./portfolio/SCRIPTGUIDE.md -d scriptguide",
+
+    "serve:dev": "echo \"Trying to serve the development environment...\" && webpack-dev-server -d --config webpack.serve.dev.config.js",
+    "serve:dev:dashboard": "echo \"Trying to serve the development environment with dashboard visualization...\" && webpack-dashboard -- webpack-dev-server -d --config webpack.serve.dev.config.js",
+    "serve:prod": "echo \"Trying to serve the production environment...\" && http-server --proxy http://localhost:8080? -o",
+    "build:dev": "echo \"Trying to build the application from the development environment...\" && webpack --config webpack.build.dev.config.js",
+    "build:prod": "echo \"Trying to build the application from the production environment...\" && webpack --config webpack.build.prod.config.js",
+    "doc:js": "echo \"Removing JavaScript documentation...\" && rm -rfv scriptguide/ && jsdoc src -r -R ./src/SCRIPTGUIDE.md -d scriptguide",
+    "doc:css": "echo \"Removing style documentation...\" && rm -rfv styleguide/ && kss --source src/ --homepage STYLEGUIDE.md --title residuall-unidades --css 'typography.scss'",
+    "rm:public": "echo \"Removing public folder...\" && rm -rfv public/",
+    "rm:docs": "echo \"Removing all documentation folders...\" && rm -rfv styleguide/ scriptguide/",
+    "clean": "echo \"Cleaning public/ directory and documentation folders...\" && npm run rm:public && npm run rm:docs",
   },
   "repository": {
     "type": "git",
@@ -24,6 +35,13 @@
     "url": "https://github.com/faelplg/webpack-environment/issues"
   },
   "homepage": "https://github.com/faelplg/webpack-environment#readme",
+  "browserslist": [
+    "last 1 version",
+    "> 5%",
+    "not dead",
+    "not ie > 1",
+    "not ie_mob > 1"
+  ],
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",

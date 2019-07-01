@@ -1,5 +1,4 @@
 node_modules/
-styleguide/
+src/
 dist/
-portfolio-src/
 portfolio/

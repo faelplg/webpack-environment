@@ -11,8 +11,8 @@ process.env.NODE_ENV = 'development';
 module.exports = {
   mode: 'development',
   entry: {
-    app: './src/index.js',
-    print: './src/print.js'
+    app: './portfolio/index.js',
+    print: './portfolio/print.js'
   },
   devtool: 'inline-source-map',
   plugins: [
@@ -21,7 +21,7 @@ module.exports = {
      * Html webpack template advanced config - [html-webpack-template]{@link https://github.com/jaketrent/html-webpack-template}
      */
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './portfolio/index.html'
     }),
     new DashboardPlugin()
   ],
@@ -46,7 +46,13 @@ module.exports = {
       }, {
         loader: 'css-loader'
       }, {
-        loader: 'postcss-loader'
+        loader: 'postcss-loader',
+        options: {
+          sourceMap: true,
+          plugins: [
+            require('autoprefixer')({flexbox: 'no-2009', grid: 'autoplace'})
+          ]
+        }
       }]
     }, {
       test: /\.html$/,
@@ -72,8 +78,13 @@ module.exports = {
     }]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    open: true
+    // publicPath: '/',
+    // contentBase: path.resolve(__dirname, 'public'),
+    // watchContentBase: true,
+    hot: true,
+    open: true,
+    port: 3000,
+    // openPage: '/acesso',
+    historyApiFallback: true
   }
 };
