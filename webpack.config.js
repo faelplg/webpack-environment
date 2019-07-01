@@ -72,8 +72,13 @@ module.exports = {
     }]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    open: true
+    // publicPath: '/',
+    // contentBase: path.resolve(__dirname, 'public'),
+    // watchContentBase: true,
+    hot: true,
+    open: true,
+    port: 3000,
+    // openPage: '/acesso',
+    historyApiFallback: true
   }
 };
