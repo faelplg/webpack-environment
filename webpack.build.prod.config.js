@@ -2,7 +2,6 @@ const path = require('path');
 /**
  * Html load strategies - [html-webpack-plugin template option]{@link https://github.com/jantimon/html-webpack-plugin/blob/master/docs/template-option.md}.
  */
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /** PRODUCTION ONLY! */
@@ -17,7 +16,6 @@ module.exports = {
     print: './portfolio/print.js'
   },
   plugins: [
-    new CleanWebpackPlugin(),
     /**
      * Html webpack template advanced config - [html-webpack-template]{@link https://github.com/jaketrent/html-webpack-template}
      */
@@ -82,7 +80,7 @@ module.exports = {
       use: [{
         loader: 'file-loader',
         options: {
-          name: 'theme/assets/[name].[ext]'
+          name: 'layout/assets/[name].[ext]'
         }
       }]
     }]

@@ -1,38 +1,38 @@
+/**
+ * @file webpack.build.dev.config.js
+ * @desc Build development environment.
+ */
 const path = require('path');
 /**
  * Html load strategies - [html-webpack-plugin template option]{@link https://github.com/jantimon/html-webpack-plugin/blob/master/docs/template-option.md}.
  */
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
-
-process.env.NODE_ENV = 'development';
+const Fiber = require('fibers');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const DashboardPlugin = require("webpack-dashboard/plugin");
 
 module.exports = {
   mode: 'development',
   entry: {
-    app: './portfolio/index.js',
-    print: './portfolio/print.js'
+    app: './src/index.js'
   },
-  devtool: 'inline-source-map',
   plugins: [
-    new CleanWebpackPlugin(),
     /**
      * Html webpack template advanced config - [html-webpack-template]{@link https://github.com/jaketrent/html-webpack-template}
      */
     new HtmlWebpackPlugin({
-      template: './portfolio/index.html'
+      template: './src/index.html'
     }),
-    new DashboardPlugin()
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
+    }),
+    new DashboardPlugin(),
+    new CleanWebpackPlugin()
   ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public'),
     filename: '[name].bundle.js'
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
   },
   module: {
     rules: [{
@@ -40,11 +40,18 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader'
     }, {
-      test: /\.css$/,
+      test: /\.(sa|sc|c)ss$/,
       use: [{
-        loader: 'style-loader'
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          sourceMap: true
+        }
       }, {
-        loader: 'css-loader'
+        loader: 'css-loader',
+        options: {
+          sourceMap: true,
+          importLoaders: 2 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
+        }
       }, {
         loader: 'postcss-loader',
         options: {
@@ -53,8 +60,18 @@ module.exports = {
             require('autoprefixer')({flexbox: 'no-2009', grid: 'autoplace'})
           ]
         }
-      }]
-    }, {
+      }
+      // NOTE: Dart sass implementation.
+      // {
+      //   loader: 'sass-loader',
+      //   options: {
+      //     sourceMap: true,
+      //     implementation: require("sass"),
+      //     fiber: Fiber,
+      //     includePaths: ['./node_modules']
+      //   }
+      // }
+    ]}, {
       test: /\.html$/,
       use: [
         'html-loader'
@@ -72,19 +89,9 @@ module.exports = {
       use: [{
         loader: 'file-loader',
         options: {
-          name: 'theme/assets/[name].[ext]'
+          name: 'assets/[name].[ext]'
         }
       }]
     }]
-  },
-  devServer: {
-    // publicPath: '/',
-    // contentBase: path.resolve(__dirname, 'public'),
-    // watchContentBase: true,
-    hot: true,
-    open: true,
-    port: 3000,
-    // openPage: '/acesso',
-    historyApiFallback: true
   }
 };

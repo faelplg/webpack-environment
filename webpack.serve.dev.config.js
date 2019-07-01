@@ -1,13 +1,15 @@
 /**
- * Portfolio webpack development build.
+ * @file webpack.serve.dev.config.js
+ * @desc Serve development environment.
  */
 const path = require('path');
+const webpack = require('webpack');
 /**
  * Html load strategies - [html-webpack-plugin template option]{@link https://github.com/jantimon/html-webpack-plugin/blob/master/docs/template-option.md}.
  */
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Fiber = require('fibers');
+const DashboardPlugin = require("webpack-dashboard/plugin");
 
 process.env.NODE_ENV = 'development';
 
@@ -19,20 +21,18 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   plugins: [
-    new CleanWebpackPlugin(),
     /**
      * Html webpack template advanced config - [html-webpack-template]{@link https://github.com/jaketrent/html-webpack-template}
      */
     new HtmlWebpackPlugin({
       template: './portfolio/index.html'
     }),
-    new MiniCssExtractPlugin({
-      filename: 'styles.css'
-    })
+    new webpack.HotModuleReplacementPlugin(),
+    new DashboardPlugin()
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: 'bundle.[hash].js'
   },
   optimization: {
     splitChunks: {
@@ -45,11 +45,18 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader'
     }, {
-      test: /\.css$/,
+      test: /\.(sa|sc|c)ss$/,
       use: [{
-        loader: MiniCssExtractPlugin.loader
+        loader: 'style-loader',
+        options: {
+          sourceMap: true
+        }
       }, {
-        loader: 'css-loader'
+        loader: 'css-loader',
+        options: {
+          sourceMap: true,
+          importLoaders: 1 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
+        }
       }, {
         loader: 'postcss-loader',
         options: {
@@ -58,8 +65,17 @@ module.exports = {
             require('autoprefixer')({flexbox: 'no-2009', grid: 'autoplace'})
           ]
         }
-      }]
-    }, {
+      }
+      // {
+      //   loader: 'sass-loader',
+      //   options: {
+      //     sourceMap: true,
+      //     implementation: require("sass"),
+      //     fiber: Fiber,
+      //     includePaths: ['./node_modules']
+      //   }
+      // }
+    ]}, {
       test: /\.html$/,
       use: [
         'html-loader'
@@ -77,7 +93,7 @@ module.exports = {
       use: [{
         loader: 'file-loader',
         options: {
-          name: 'theme/assets/[name].[ext]'
+          name: 'layout/assets/[name].[ext]'
         }
       }]
     }]
