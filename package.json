@@ -11,6 +11,7 @@
     "build:production": "webpack --config webpack.prod.config.js",
     "build:test": "webpack",
     "portfolio:doc:css": "kss --source portfolio/ --homepage STYLEGUIDE.md --title Portfolio --css ../portfolio/theme/theme.css --css ../portfolio/components/components.css",
+    "portfolio:doc:js": "jsdoc src -r -R ./portfolio/SCRIPTGUIDE.md -d scriptguide",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,13 @@
     "url": "https://github.com/faelplg/webpack-environment/issues"
   },
   "homepage": "https://github.com/faelplg/webpack-environment#readme",
+  "browserslist": [
+    "last 1 version",
+    "> 5%",
+    "not dead",
+    "not ie > 1",
+    "not ie_mob > 1"
+  ],
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",

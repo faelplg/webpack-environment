@@ -51,7 +51,13 @@ module.exports = {
       }, {
         loader: 'css-loader'
       }, {
-        loader: 'postcss-loader'
+        loader: 'postcss-loader',
+        options: {
+          sourceMap: true,
+          plugins: [
+            require('autoprefixer')({flexbox: 'no-2009', grid: 'autoplace'})
+          ]
+        }
       }]
     }, {
       test: /\.html$/,
