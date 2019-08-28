@@ -33,7 +33,7 @@ module.exports = {
       favicon: './src/favicon.ico'
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css'
+      filename: 'styles.css'
     })
   ],
   output: {
