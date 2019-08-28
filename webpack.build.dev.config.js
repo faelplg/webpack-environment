@@ -9,31 +9,45 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Fiber = require('fibers');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const DashboardPlugin = require("webpack-dashboard/plugin");
+
+process.env.NODE_ENV = 'development';
 
 module.exports = {
   mode: 'development',
   entry: {
     app: './src/index.js'
+    // print: './src/print.js'
   },
+  /**
+   * Use the code below for source-map debugging settings.
+   */
+  // devtool: 'cheap-eval-source-map',
+  // devtool: 'inline-source-map',
+  // devtool: 'eval-source-map',
   plugins: [
     /**
      * Html webpack template advanced config - [html-webpack-template]{@link https://github.com/jaketrent/html-webpack-template}
      */
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
+      favicon: './src/favicon.ico'
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css'
-    }),
-    new DashboardPlugin(),
-    new CleanWebpackPlugin()
+    })
   ],
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: '[name].bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.[hash].js'
   },
+  /**
+   * Use the code below for multiple pages website.
+   */
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all'
+  //   }
+  // },
   module: {
     rules: [{
       test: /\.js$/,
@@ -60,36 +74,39 @@ module.exports = {
             require('autoprefixer')({flexbox: 'no-2009', grid: 'autoplace'})
           ]
         }
-      }
-      // NOTE: Dart sass implementation.
-      // {
-      //   loader: 'sass-loader',
-      //   options: {
-      //     sourceMap: true,
-      //     implementation: require("sass"),
-      //     fiber: Fiber,
-      //     includePaths: ['./node_modules']
-      //   }
-      // }
-    ]}, {
+      },{
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true,
+          implementation: require('sass'),
+          fiber: Fiber,
+          includePaths: ['./node_modules']
+        }
+      }]
+    }, {
       test: /\.html$/,
       use: [
         'html-loader'
       ]
-    }, {
-      test: /\.(md)$/,
-      use: [{
-        loader: "file-loader",
-        options: {
-          name: '[name].[ext]'
-        }
-      }]
-    }, {
+    },
+    /**
+     * Use the code below for compiling Markdown files.
+     */
+    // {
+    //   test: /\.(md)$/,
+    //   use: [{
+    //     loader: "file-loader",
+    //     options: {
+    //       name: '[name].[ext]'
+    //     }
+    //   }]
+    // },
+    {
       test: /\.(png|svg|jpg|jpeg|gif)$/,
       use: [{
         loader: 'file-loader',
         options: {
-          name: 'assets/[name].[ext]'
+          name: 'layout/images/[name].[ext]'
         }
       }]
     }]

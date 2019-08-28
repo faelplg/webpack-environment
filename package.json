@@ -2,7 +2,7 @@
   "name": "webpack-environment",
   "version": "0.1.0",
   "description": "Webpack development environment (Personal LTS).",
-  "private": "true",
+  "private": true,
   "scripts": {
     "serve:dev": "echo \"Trying to serve the development environment...\" && webpack-dev-server -d --config webpack.serve.dev.config.js",
     "serve:dev:dashboard": "echo \"Trying to serve the development environment with dashboard visualization...\" && webpack-dashboard -- webpack-dev-server -d --config webpack.serve.dev.config.js",
@@ -10,13 +10,12 @@
     "build:dev": "echo \"Trying to build the application from the development environment...\" && webpack --config webpack.build.dev.config.js",
     "build:prod": "echo \"Trying to build the application from the production environment...\" && webpack --config webpack.build.prod.config.js",
     "build:test": "webpack",
-    "portfolio:doc:css": "kss --source portfolio/ --homepage STYLEGUIDE.md --title Portfolio --css ../portfolio/layout/theme.css --css ../portfolio/components/components.css",
-    "portfolio:doc:js": "jsdoc src -r -R ./portfolio/SCRIPTGUIDE.md -d scriptguide",
-    "doc:js": "echo \"Removing JavaScript documentation...\" && rm -rfv scriptguide/ && jsdoc src -r -R ./src/SCRIPTGUIDE.md -d scriptguide",
-    "doc:css": "echo \"Removing style documentation...\" && rm -rfv styleguide/ && kss --source src/ --homepage STYLEGUIDE.md --title residuall-unidades --css 'typography.scss'",
-    "rm:public": "echo \"Removing public folder...\" && rm -rfv public/",
+    "doc:jsdoc": "echo \"Generating JavaScript documentation using JSDoc...\" && rm -rfv scriptguide/ && jsdoc src -r -R ./src/SCRIPTGUIDE.md -d scriptguide",
+    "doc:sassdoc": "echo \"Generating style documentation using SASSDoc...\" && sassdoc ./src -d styleguide",
     "rm:docs": "echo \"Removing all documentation folders...\" && rm -rfv styleguide/ scriptguide/",
-    "clean": "echo \"Cleaning public/ directory and documentation folders...\" && npm run rm:public && npm run rm:docs"
+    "rm:build": "echo \"Removing dist folders...\" && rm -rfv public/ dist/",
+    "test": "echo \"This is a test.\" && exit 1",
+    "clean": "echo \"Cleaning public/ directory and documentation folders...\" && npm run rm:build && npm run rm:docs"
   },
   "repository": {
     "type": "git",
