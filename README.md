@@ -14,5 +14,6 @@ Webpack development environment (Personal LTS).
 03 | Now compiling Markdown.           | --      | 18/04/2019
 04 | Created develop branch.           | --      | 29/04/2019
 05 | Created develop-portfolio branch. | --      | 29/04/2019
+06 | Updating general structure.       | --      | 27/08/2019
 
 \* Unstable on Webpack/Node/npm newer versions.
