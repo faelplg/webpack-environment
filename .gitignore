@@ -1,4 +1,5 @@
 node_modules/
-src/
+src/components/
+src/layout/
+src/states/
 dist/
-portfolio/

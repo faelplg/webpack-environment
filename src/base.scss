@@ -1,0 +1,232 @@
+////
+/// @group base
+/// @author Rafael Goulart (faelplg)
+////
+
+// This file is used to reset all of the cross-browsing default styles.
+@import './reset.scss';
+
+/// Remove overflow from the elements html and body.
+html, body {
+  overflow: hidden;
+}
+/// Set section and wrapper to overflow vertically.
+section, .wrapper {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+/// Set wrapper to have a relative position to act as a parent of all structures.
+.wrapper {
+  position: relative;
+}
+/// Normalize the height of the main structures with the height of the viewport.
+html, body, .wrapper {
+  height: 100vh;
+}
+/// Set native containers to have border-box value for box-sizing property.
+div, section, header, aside, fieldset {
+  box-sizing: border-box;
+}
+
+/// Flexible container class.
+.container {
+  display: flex;
+  padding: 16px;
+  position: relative;
+}
+/// Container with left/right paddings and no top/bottom paddings.
+.container--shaved-row {
+  padding: 16px 0;
+}
+/// Container with top/botttom paddings and no top/bottom paddings.
+.container--shaved-column {
+  padding: 0 16px;
+}
+/* --tablet-portrait-max */
+@media only screen and (max-width: 1199px) {
+  .container {
+    padding: 8px;
+  }
+  .container--shaved {
+    padding: 0 8px;
+  }
+}
+/// A container with dense padding size. Commonly used for mobile structures.
+.container--dense {
+  padding: 8px;
+}
+/// A container without paddings.
+.container--raw {
+  padding: 0;
+}
+/// A container with vertical orientation for flexible containers.
+///
+/// This orientation is set as default for flexible containers.
+.container, .container--vertical {
+  flex-flow: column;
+}
+/// A vertical orientation with wrap property for flexible containers.
+.container--vertical-wrap {
+  flex-flow: row wrap;
+}
+/// Horizontal orientation for flexible containers.
+.container--horizontal {
+  flex-flow: row;
+}
+/// Horizontal orientation with wrap property for flexible containers.
+.container--horizontal-wrap {
+  flex-flow: row wrap;
+}
+/// Flexible container responsivity following the device orientation preference.
+.flex-flow--mobile, .flex-flow--tablet, .flex-flow--default {
+  flex-flow: row;
+}
+/* --phone-only */
+@media only screen and (max-width: 599px) {
+  .flex-flow--mobile, .flex-flow--tablet, .flex-flow--default {
+    flex-flow: column;
+  }
+}
+/* --tablet-portrait-min to --tablet-portrait-max */
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  .flex-flow--tablet, .flex-flow--default {
+    flex-flow: column;
+  }
+}
+/* --tablet-landscape-min to --tablet-landscape-max */
+@media only screen and (min-width: 900px) and (max-width: 1199px) {
+  .container--responsive {
+    flex-flow: column;
+  }
+}
+
+/// Flexible box with auto-grow property.
+.box {
+  flex: auto;
+}
+/// Flexible box with no shrink property.
+.box--shrink {
+  flex: initial;
+}
+/// Flexible box will be sent to first position.
+.box--first {
+  order: -1;
+}
+
+/// ## Element alignment
+///
+/// Align element at the start of the parent container.
+.align-items--start {
+  align-items: flex-start;
+}
+/// ## Element alignment
+///
+/// Align element at the center of the parent container.
+.align-items--center {
+  align-items: center;
+}
+@media only screen and (max-width: 599px) {
+  /// ## Element alignment
+  ///
+  /// Align element at the center of the parent container only in mobile devices.
+  .align-mobile-items--center {
+    align-items: center;
+  }
+}
+/// ## Element alignment
+///
+/// Align element at the end of the parent container.
+.align-items--end {
+  align-items: flex-end;
+}
+.justify-content--start {
+  justify-content: flex-start;
+}
+.justify-content--center {
+  justify-content: center;
+}
+@media only screen and (max-width: 599px) {
+  .justify-mobile-content--center {
+    justify-content: center;
+  }
+}
+.justify-content--end {
+  justify-content: flex-end;
+}
+
+/// ## Element utility
+///
+/// Remove element margins.
+.no-margins {
+  margin: 0;
+}
+/// ## Element utility
+///
+/// Hide element without removing it.
+.vanish {
+  background-color: transparent!important;
+  border-color: transparent!important;
+  color: transparent!important;
+  height: 0!important;
+  margin-left: -999px!important;
+  outline: none;
+  position: absolute!important;
+  visibility: hidden!important;
+  width: 0!important;
+}
+/// Responsive class for vanish elements on phone-only resolutions.
+@media only screen and (max-width: 599px) {
+  .vanish--phone-only {
+    background-color: transparent!important;
+    border-color: transparent!important;
+    color: transparent!important;
+    height: 0!important;
+    margin-left: -999px!important;
+    outline: none;
+    position: absolute!important;
+    visibility: hidden!important;
+    width: 0!important;
+  }
+}
+
+/// ## Element utility
+///
+/// Rotate element 180deg.
+.rotate--180 {
+  transform: rotate(180deg);
+}
+
+/// ## Element size
+///
+/// Set the element height of 100% of the viewport.
+.height--viewport-full {
+  height: 100vh;
+}
+/// ## Element size
+///
+/// Set the element height of 100% of the parent.
+.height--parent-full {
+  height: 100%;
+}
+/// ## Element size
+///
+/// Set the element width of 100% of the viewport.
+.width--viewport-full {
+  width: 100vw;
+}
+@media only screen and (max-width: 599px) {
+  .width--phone-viewport-full {
+    width: 100vw;
+  }
+}
+/// ## Element size
+///
+/// Set the element width of 100% of the parent.
+.width--parent-full {
+  width: 100%;
+}
+
+/// Import layout styles.
+@import './layout/layout.scss';
+@import './components/components.scss';
+@import './states/states.scss';
