@@ -15,3 +15,4 @@ Webpack development environment (Personal LTS).
 04 | Created develop branch.           | --      | 29/04/2019
 05 | Created develop-portfolio branch. | --      | 29/04/2019
 06 | Updating general structure.       | --      | 27/08/2019
+07 | Updating packages.                | --      | 09/09/2019
