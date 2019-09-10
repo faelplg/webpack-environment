@@ -57,4 +57,5 @@ import './states/index';
 //     states
 //   ]);
 
-console.log('%cAmbiente de desenvolvimento web.', 'color: #21eb29; background: #222; padding: 8px;');
+console.log('%cWeb development environment.', 'color: #21eb29; background: #222; padding: 8px;');
+console.log('%c[pt-br] Ambiente de desenvolvimento web.', 'color: #21eb29; background: #222; padding: 8px;');

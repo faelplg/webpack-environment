@@ -3,8 +3,8 @@ Webpack development environment (Personal LTS).
 
 ## Tested with
 
-* npm v5.6.0;
-* Node v10.15.3;
+* npm v5.6.0, v6.9.0;
+* Node v10.15.3, v10.16.3;
 
 ## Changelog
 \# | update                            | version | updated at  
