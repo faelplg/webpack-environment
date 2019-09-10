@@ -40,6 +40,11 @@ import './base.scss';
 // import {states} from './states/index';
 import './states/index';
 
+/** Assets */
+import Package from '../package.json';
+console.log('Package', Package);
+console.log('Package entries', Object.entries(Package));
+
 // export const app = 'app';
 
 /** AngularJS module */
