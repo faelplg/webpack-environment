@@ -1,0 +1,51 @@
+////
+/// @group typography
+/// @author Rafael Goulart (faelplg)
+////
+
+// Require Ubuntu and Lato fonts.
+@import url('https://fonts.googleapis.com/css?family=Lato|Ubuntu&display=swap');
+
+/// Set text elements to have no margins.
+h1, h2, h3, p {
+  margin: 0;
+}
+
+/// Set the base font with Lato.
+body, p {
+  font-family: 'Lato', sans-serif;
+}
+
+/// Set the headers with Ubuntu.
+h1, h2, h3 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/// ## Headline element.
+///
+/// You should use it with H2.
+.headline {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  height: 72px;
+}
+/// Headline with only one text.
+.headline.headline--single {
+  height: 54px;
+}
+
+/// Headline icon.
+.headline > span.material-icons,
+.headline > img {
+  margin: 0 16px;
+}
+
+/// Center-align text.
+.text--center {
+  text-align: center;
+}
+/// Right-align text.
+.text--right {
+  text-align: right;
+}

@@ -3,64 +3,37 @@
  * @desc Main index of the application.
  */
 
-// REVIEW: Comente antes de colocar em produção.
-// HACK: Usado para forçar hot reload de alterações no ./index.html
+/** HACK: Use this to force hot reload of the index.html file in some environments. */
+/** NOTE: Only for development environments. *\
 // import './index.html';
 
-/** AngularJS packages */
-// import angular from 'angular';
-// import 'angular-animate';
-// import 'angular-aria';
-// import 'angular-messages';
-// import 'angular-resource';
-// import 'angular-sanitize';
+/** PRoject main packages */
+// import package from 'package';
 
-/** Plugins */
-// import 'moment';
-
-/** AngularJS plugins */
-// import 'angular-moment';
-// import 'angular-loading-bar/src/loading-bar';
-// import 'angular-loading-bar/src/loading-bar.css';
-
-/** AngularJS constants */
-// import {constants} from './constants';
-
-/** AngularJS routing */
-// import '@uirouter/core';
-// import '@uirouter/angularjs';
-
-/** String filters */
+/** Project filters */
 // import {filters} from './filters';
 
-/** Style */
+/** Project third part libraries */
+// import 'moment';
+
+/** Project style */
 import './base.scss';
 
 /** States */
 // import {states} from './states/index';
-import './states/index';
+// import './states/index';
+
+/** State components */
+// import Button from './components/data-table/data-table.component';
+// const buttonComponent = new Button('.button');
+// button.status();
+import DataTable from './js-components/data-table/data-table.component';
+const dataTable = new DataTable('.mdc-data-table');
+dataTable.status();
 
 /** Assets */
 import Package from '../package.json';
 console.log('Package', Package);
 console.log('Package entries', Object.entries(Package));
 
-// export const app = 'app';
-
-/** AngularJS module */
-// angular
-//   .module('app', [
-//     'ngAria',
-//     'ngSanitize',
-//     'ngMessages',
-//     'ngAnimate',
-//     'ngResource',
-//     'angular-loading-bar',
-//     'ui.router',
-//     constants,
-//     filters,
-//     states
-//   ]);
-
-console.log('%cWeb development environment.', 'color: #21eb29; background: #222; padding: 8px;');
-console.log('%c[pt-br] Ambiente de desenvolvimento web.', 'color: #21eb29; background: #222; padding: 8px;');
+console.log('%cComplete index.js template.', 'color: #21eb29; background: #222; padding: 8px;');

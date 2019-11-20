@@ -2,7 +2,6 @@
   "name": "webpack-environment",
   "version": "0.1.0",
   "description": "Webpack development environment (Personal LTS).",
-  "private": true,
   "scripts": {
     "serve:dev": "echo \"Trying to serve the development environment...\" && webpack-dev-server -d --config webpack.serve.dev.config.js",
     "serve:dev:dashboard": "echo \"Trying to serve the development environment with dashboard visualization...\" && webpack-dashboard -- webpack-dev-server -d --config webpack.serve.dev.config.js",
@@ -58,5 +57,12 @@
     "webpack-cli": "^3.3.8",
     "webpack-dashboard": "^3.2.0",
     "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "@material/button": "^3.2.0",
+    "@material/card": "^3.2.0",
+    "@material/data-table": "^3.2.0",
+    "@material/fab": "^3.2.0",
+    "@material/icon-button": "^3.2.0"
   }
 }

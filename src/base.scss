@@ -3,8 +3,21 @@
 /// @author Rafael Goulart (faelplg)
 ////
 
-// This file is used to reset all of the cross-browsing default styles.
-@import './reset.scss';
+$lg: 1.6em;
+$md: 1.2em;
+$sm: .8em;
+$xs: .6em;
+
+$phone_only: 599px;
+$tablet_portrait_min: 600px;
+$tablet_portrait_max: 899px;
+$tablet_landscape_min: 900px;
+$tablet_landscape_max: 1199px;
+$desktop_min: 1200px;
+$desktop_max: 1799px;
+$big_desktop_min: 1800px;
+
+@import './layout/reset.scss';
 
 /// Remove overflow from the elements html and body.
 html, body {
@@ -28,27 +41,31 @@ div, section, header, aside, fieldset {
   box-sizing: border-box;
 }
 
-/// Flexible container class.
+/// Grid styles
+#grid__container {
+  overflow-y: scroll;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 64px min-content auto min-content;
+  grid-template-columns: auto;
+  grid-gap: 8px 8px;
+}
+.grid__header {
+  height: 64px;
+}
+.grid__main {
+  max-height: 100px;
+}
+
+/// Container class.
 .container {
-  display: flex;
   padding: 16px;
   position: relative;
-}
-/// Container with left/right paddings and no top/bottom paddings.
-.container--shaved-row {
-  padding: 16px 0;
-}
-/// Container with top/botttom paddings and no top/bottom paddings.
-.container--shaved-column {
-  padding: 0 16px;
 }
 /* --tablet-portrait-max */
 @media only screen and (max-width: 1199px) {
   .container {
     padding: 8px;
-  }
-  .container--shaved {
-    padding: 0 8px;
   }
 }
 /// A container with dense padding size. Commonly used for mobile structures.
@@ -59,57 +76,77 @@ div, section, header, aside, fieldset {
 .container--raw {
   padding: 0;
 }
+/// Vertical scrolling.
+.container--scroll-y {
+  overflow-y: auto;
+}
+/// Horizontal scrolling.
+.container--scroll-x {
+  overflow-x: auto;
+}
+
+/// Flexible class.
+.flex {
+  display: flex;
+}
+/// Inline flexible container.
+.inline-flex {
+  display: inline-flex;
+}
 /// A container with vertical orientation for flexible containers.
 ///
 /// This orientation is set as default for flexible containers.
-.container, .container--vertical {
+.flex, .flow--column {
   flex-flow: column;
 }
 /// A vertical orientation with wrap property for flexible containers.
-.container--vertical-wrap {
-  flex-flow: row wrap;
+.flow--column-wrap {
+  flex-flow: column wrap;
 }
 /// Horizontal orientation for flexible containers.
-.container--horizontal {
+.flow--row {
   flex-flow: row;
 }
 /// Horizontal orientation with wrap property for flexible containers.
-.container--horizontal-wrap {
+.flow--row-wrap {
   flex-flow: row wrap;
 }
 /// Flexible container responsivity following the device orientation preference.
-.flex-flow--mobile, .flex-flow--tablet, .flex-flow--default {
+.flow--mobile, .flow--tablet, .flow--default {
   flex-flow: row;
 }
 /* --phone-only */
 @media only screen and (max-width: 599px) {
-  .flex-flow--mobile, .flex-flow--tablet, .flex-flow--default {
+  .flow--mobile, .flow--tablet, .flow--default {
     flex-flow: column;
   }
 }
 /* --tablet-portrait-min to --tablet-portrait-max */
 @media only screen and (min-width: 600px) and (max-width: 899px) {
-  .flex-flow--tablet, .flex-flow--default {
+  .flow--tablet, .flow--default {
     flex-flow: column;
   }
 }
 /* --tablet-landscape-min to --tablet-landscape-max */
 @media only screen and (min-width: 900px) and (max-width: 1199px) {
-  .container--responsive {
+  .flow--default {
     flex-flow: column;
   }
 }
 
 /// Flexible box with auto-grow property.
-.box {
+.flex__item {
   flex: auto;
 }
 /// Flexible box with no shrink property.
-.box--shrink {
+.flex__item--initial {
   flex: initial;
 }
+.flex__item--none {
+  flex: none;
+}
 /// Flexible box will be sent to first position.
-.box--first {
+.flex__item--first {
   order: -1;
 }
 
@@ -125,6 +162,7 @@ div, section, header, aside, fieldset {
 .align-items--center {
   align-items: center;
 }
+/* --phone-only */
 @media only screen and (max-width: 599px) {
   /// ## Element alignment
   ///
@@ -145,6 +183,7 @@ div, section, header, aside, fieldset {
 .justify-content--center {
   justify-content: center;
 }
+// Phone only
 @media only screen and (max-width: 599px) {
   .justify-mobile-content--center {
     justify-content: center;
@@ -152,48 +191,6 @@ div, section, header, aside, fieldset {
 }
 .justify-content--end {
   justify-content: flex-end;
-}
-
-/// ## Element utility
-///
-/// Remove element margins.
-.no-margins {
-  margin: 0;
-}
-/// ## Element utility
-///
-/// Hide element without removing it.
-.vanish {
-  background-color: transparent!important;
-  border-color: transparent!important;
-  color: transparent!important;
-  height: 0!important;
-  margin-left: -999px!important;
-  outline: none;
-  position: absolute!important;
-  visibility: hidden!important;
-  width: 0!important;
-}
-/// Responsive class for vanish elements on phone-only resolutions.
-@media only screen and (max-width: 599px) {
-  .vanish--phone-only {
-    background-color: transparent!important;
-    border-color: transparent!important;
-    color: transparent!important;
-    height: 0!important;
-    margin-left: -999px!important;
-    outline: none;
-    position: absolute!important;
-    visibility: hidden!important;
-    width: 0!important;
-  }
-}
-
-/// ## Element utility
-///
-/// Rotate element 180deg.
-.rotate--180 {
-  transform: rotate(180deg);
 }
 
 /// ## Element size
@@ -214,6 +211,7 @@ div, section, header, aside, fieldset {
 .width--viewport-full {
   width: 100vw;
 }
+/* --phone-only */
 @media only screen and (max-width: 599px) {
   .width--phone-viewport-full {
     width: 100vw;
@@ -226,7 +224,144 @@ div, section, header, aside, fieldset {
   width: 100%;
 }
 
-/// Import layout styles.
+/*
+ * Container styles
+ */
+.page__content {
+  // phones
+  @media (max-width:$phone_only) {
+    padding: 0 10px;
+  }
+  // tablet portrait
+  @media (min-width: $tablet_portrait_min) and (max-width: $tablet_portrait_max) {
+    padding: 0 40px;
+  }
+  // tablet landscape
+  @media (min-width: $tablet_landscape_min) and (max-width: $tablet_landscape_max) {
+    padding: 0 60px;
+  }
+  // desktops
+  @media (min-width: $desktop_min) and (max-width: $desktop_max) {
+    padding: 0 220px;
+  }
+  // large desktops
+  @media (min-width: $big_desktop_min) {
+    padding: 0 300px;
+  }
+}
+.content--padding {
+  box-sizing: border-box;
+  padding: 8px;
+  @media (min-width: 960px) {
+    padding: 16px;
+  }
+}
+.content--margin {
+  margin: 8px;
+  @media (min-width: 960px) {
+    margin: 16px;
+  }
+}
+
+/*
+ * Icon style
+ */
+.icon {
+  height:60px;
+  width:60px;
+  margin: 0px 8px;
+  // phones
+  @media (max-width:$phone_only) {
+    height:60px;
+    width:60px;
+  }
+  // tablet portrait
+  @media (min-width: $tablet_portrait_min) and (max-width: $tablet_portrait_max) {
+    height:75px;
+    width:75px;
+  }
+  // tablet landscape
+  @media (min-width: $tablet_landscape_min) and (max-width: $tablet_landscape_max) {
+    height:80px;
+    width:80px;
+  }
+  // desktops
+  @media (min-width: $desktop_min) and (max-width: $desktop_max) {
+    height:95px;
+    width:95px;
+  }
+  // large desktops
+  @media (min-width: $big_desktop_min) {
+    height:100px;
+    width:100px;
+  }
+}
+
+/*
+ * Tables
+ */
+table {
+  @media (max-width:$phone_only) {
+    display: none;
+  }
+}
+tr > th,
+tr > td {
+  padding: 16px;
+}
+
+/// ## Spacement utility
+///
+/// Set the paddings and margins.
+.m--sm {
+  margin: 4px;
+}
+.m {
+  margin: 8px;
+}
+.m--lg {
+  margin: 16px;
+}
+.m-l--sm {
+  margin-left: 4px;
+}
+.m-l {
+  margin-left: 8px;
+}
+.m-l--lg {
+  margin-left: 16px;
+}
+.m-t--sm {
+  margin-top: 4px;
+}
+.m-t {
+  margin-top: 8px;
+}
+.m-t--lg {
+  margin-top: 16px;
+}
+.m-r--sm {
+  margin-right: 4px;
+}
+.m-r {
+  margin-right: 8px;
+}
+.m-r--lg {
+  margin-right: 16px;
+}
+.m-b--sm {
+  margin-bottom: 4px;
+}
+.m-b {
+  margin-bottom: 8px;
+}
+.m-b--lg {
+  margin-bottom: 16px;
+}
+.m--none {
+  margin: 0;
+}
+
 @import './layout/layout.scss';
-@import './components/components.scss';
+@import './js-components/components.scss';
 @import './states/states.scss';

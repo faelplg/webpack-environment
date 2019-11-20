@@ -1,5 +1,6 @@
 node_modules/
 src/components/
-src/layout/
-src/states/
+src/js-components/
+# src/layout/
+# src/states/
 dist/
