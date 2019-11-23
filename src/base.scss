@@ -28,13 +28,25 @@ section, .wrapper {
   overflow-y: auto;
   overflow-x: hidden;
 }
+/// Normalize the height of the main structures with the height of the viewport.
+html, body, .wrapper {
+  height: 100vh;
+}
 /// Set wrapper to have a relative position to act as a parent of all structures.
 .wrapper {
   position: relative;
 }
-/// Normalize the height of the main structures with the height of the viewport.
-html, body, .wrapper {
-  height: 100vh;
+.wrapper.wrapper--no-scroll {
+  overflow: unset;
+}
+.wrapper--with-header {
+  height: calc(100% - 64px);
+}
+/* --phone-only */
+@media only screen and (max-width: 599px) {
+  .wrapper--with-header {
+    height: calc(100% - 56px);
+  }
 }
 /// Set native containers to have border-box value for box-sizing property.
 div, section, header, aside, fieldset {
@@ -363,5 +375,6 @@ tr > td {
 }
 
 @import './layout/layout.scss';
+// @import './components/components.scss';
 @import './js-components/components.scss';
 @import './states/states.scss';

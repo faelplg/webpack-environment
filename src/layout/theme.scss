@@ -3,6 +3,13 @@
 /// @author Rafael Goulart (faelplg)
 ////
 
+// -- Theme colors
+// Black
+// Blue
+// Brown
+// Gray, light-gray, dark-gray
+// Green, dark-green
+
 @import './colors.scss';
 
 /// ## Black theme
@@ -54,7 +61,8 @@
 /// ## Gray theme
 ///
 /// Normal, light and dark.
-.theme-surface--gray {
+.theme-surface--gray,
+.mdc-top-app-bar.theme-surface--gray {
   background-color: $gray;
   color: $black;
   fill: $black;
@@ -66,7 +74,7 @@
   fill: $black;
 }
 /// ## Dark gray surface theme.
-.theme-surface---dark-gray {
+.theme-surface--dark-gray {
   background-color: $dark-gray;
   color: $black;
   fill: $black;
@@ -82,7 +90,7 @@
   fill: $black;
 }
 /// ## Dark green surface theme.
-.theme-surface---dark-green {
+.theme-surface--dark-green {
   background-color: $dark-green;
   color: $black;
   fill: $black;

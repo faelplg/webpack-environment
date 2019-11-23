@@ -24,16 +24,17 @@ import './base.scss';
 // import './states/index';
 
 /** State components */
-// import Button from './components/data-table/data-table.component';
+// import Button from './components/button/button.component';
 // const buttonComponent = new Button('.button');
-// button.status();
-import DataTable from './js-components/data-table/data-table.component';
-const dataTable = new DataTable('.mdc-data-table');
-dataTable.status();
+// buttonComponent.status();.
+
+// import DataTable from './js-components/data-table/data-table.component';
+// const dataTable = new DataTable('.mdc-data-table');
+// dataTable.status();
 
 /** Assets */
 import Package from '../package.json';
 console.log('Package', Package);
 console.log('Package entries', Object.entries(Package));
 
-console.log('%cComplete index.js template.', 'color: #21eb29; background: #222; padding: 8px;');
+console.log('%cWebpack environment for Front End development.', 'color: #21eb29; background: #222; padding: 8px;');
