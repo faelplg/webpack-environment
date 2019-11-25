@@ -9,26 +9,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-    <div class="wrapper wrapper--no-scroll wrapper--with-header">
-      <header class="mdc-top-app-bar mdc-top-app-bar--fixed theme-surface--gray">
-        <div class="mdc-top-app-bar__row">
-          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-            <!-- <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button> -->
-            <span class="mdc-top-app-bar__title">Webpack environment</span>
-          </section>
-        </div>
+    <div class="wrapper">
+      <!-- \/ Top app bar component -->
+      <header class="top-app-bar top-app-bar--fixed mdc-elevation--z2 theme-surface--gray">
+        <h1>Webpack environment</h1>
       </header>
-      <!-- \/ Top app bar fix -->
-      <div class="mdc-top-app-bar--fixed-adjust"></div>
-      <!-- /\ Top app bar fix -->
+      <!-- /\ Top app bar component -->
       <!-- \/ Test container -->
-      <div class="container container--raw height--parent-full flex flow--mobile">
-        <div class="flex__item--initial container theme-surface--dark-gray">
-          <h3>Showroom menu</h3>
+      <div class="container container--raw top-app-bar--container-fix flex flow--mobile">
+        <div class="flex__item--initial container sidebar theme-surface--dark-gray">
+          <h3>Sidebar</h3>
         </div>
-        <div class="flex__item container container--scroll-y"
-        style="height:1234px;">
-          <h3>Showroom content</h3>
+        <div class="flex__item container">
+          <h3>Content</h3>
         </div>
       </div>
       <!-- /\ Test container -->
