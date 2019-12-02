@@ -12,19 +12,24 @@
     <div class="wrapper">
       <!-- \/ Top app bar component -->
       <header class="top-app-bar top-app-bar--fixed mdc-elevation--z2 theme-surface--gray">
-        <h1>Webpack environment</h1>
+        <h1>Webpack environment&nbsp;</h1>
+        <p id="project-version"></p>
       </header>
       <!-- /\ Top app bar component -->
-      <!-- \/ Test container -->
+      <!-- \/ Content container -->
       <div class="container container--raw top-app-bar--container-fix flex flow--mobile">
-        <div class="flex__item--initial container sidebar theme-surface--dark-gray">
-          <h3>Sidebar</h3>
+        <div class="flex__item--initial container--raw sidebar theme-surface--dark-gray">
+          <ul class="mdc-list list--no-padding">
+            <li class="mdc-list-item mdc-list-item--selected" tabindex="0">
+              <span class="mdc-list-item__text">package.json</span>
+            </li>
+          </ul>
         </div>
-        <div class="flex__item container">
-          <h3>Content</h3>
+        <div class="flex__item container container--scroll-x">
+          <pre id="package-object"></pre>
         </div>
       </div>
-      <!-- /\ Test container -->
+      <!-- /\ Content container -->
     </div>
   </body>
 </html>

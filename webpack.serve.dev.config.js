@@ -17,7 +17,6 @@ module.exports = {
   mode: 'development',
   entry: {
     app: './src/index.js'
-    // print: './src/print.js'
   },
   /**
    * Use the code below for source-map debugging settings.
@@ -33,6 +32,17 @@ module.exports = {
       template: './src/index.html',
       favicon: './src/favicon.ico'
     }),
+    // // Use the code below for multiple HTML pages.
+    // new HtmlWebpackPlugin({
+    //   filename: 'index.html',
+    //   template: 'src/index.html',
+    //   chunks: ['main']
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'example.html',
+    //   template: 'src/example.html',
+    //   chunks: ['exampleEntry']
+    // }),
     new webpack.HotModuleReplacementPlugin(),
     new DashboardPlugin()
   ],

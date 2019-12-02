@@ -1,6 +1,4 @@
 node_modules/
-src/components/
 src/js-components/
-# src/layout/
-# src/states/
 dist/
+public/
