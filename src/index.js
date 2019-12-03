@@ -41,15 +41,27 @@ listComponent.status();
 // const dataTable = new DataTable('.mdc-data-table');
 // dataTable.status();
 
-/** Assets */
+/** pa ckage.json - Node Package file */
 import Package from '../package.json';
-const packageObjectElement = document.getElementById('package-object');
-packageObjectElement.innerHTML = JSON.stringify(Package, undefined, 2);
+
+/** Package title */
+// const packageTitleElement = document.getElementById('package-title');
+// packageTitleElement.innerHTML = Package.name;
+
+/** Package subtitle */
+const packageSubtitleElement = document.getElementById('package-subtitle');
+packageSubtitleElement.innerHTML = Package.description;
+
+/** Package version */
+const packageVersionElement = document.getElementById('package-version');
+packageVersionElement.innerHTML = `v${Package.version}`;
+
+/** Package repository */
+const packageRepository = document.getElementById('package-repository');
+packageRepository.href = Package.repository.url.substr(4);
+console.log('packageRepository', packageRepository);
+
+/** View the Node Package object structure */
+const packageElement = document.getElementById('package');
+packageElement.innerHTML = JSON.stringify(Package, undefined, 2);
 console.log('Package', Package);
-
-const projectVersionElement = document.getElementById('project-version');
-projectVersionElement.innerHTML = `v${Package.version}`;
-
-const packageEntries = Object.entries(Package);
-console.log('packageEntries', packageEntries);
-// console.log('Package entries', Object.entries(Package));

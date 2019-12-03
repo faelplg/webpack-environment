@@ -11,14 +11,18 @@
   <body>
     <div class="wrapper">
       <!-- \/ Top app bar component -->
-      <header class="top-app-bar top-app-bar--fixed mdc-elevation--z2 theme-surface--gray">
+      <header class="top-app-bar top-app-bar--fixed mdc-elevation--z2 theme-surface--light-gray">
         <h1>Webpack environment&nbsp;</h1>
-        <p id="project-version"></p>
+        <p id="package-version"></p>
+        <span class="flex__item"></span>
+        <button id="package-repository" class="mdc-icon-button">
+          <span class="material-icons">code</span>
+        </button>
       </header>
       <!-- /\ Top app bar component -->
       <!-- \/ Content container -->
       <div class="container container--raw top-app-bar--container-fix flex flow--mobile">
-        <div class="flex__item--initial container--raw sidebar theme-surface--dark-gray">
+        <div class="flex__item--initial container--raw sidebar theme-surface--gray">
           <ul class="mdc-list list--no-padding">
             <li class="mdc-list-item mdc-list-item--selected" tabindex="0">
               <span class="mdc-list-item__text">package.json</span>
@@ -26,7 +30,9 @@
           </ul>
         </div>
         <div class="flex__item container container--scroll-x">
-          <pre id="package-object"></pre>
+          <h2 id="package-subtitle" class="headline headline--single"></h2>
+          <!-- <h2 id="package-subtitle" class="subtitle"></h2> -->
+          <pre id="package"></pre>
         </div>
       </div>
       <!-- /\ Content container -->

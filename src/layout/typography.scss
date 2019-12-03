@@ -4,7 +4,7 @@
 ////
 
 // Require Ubuntu and Lato fonts.
-@import url('https://fonts.googleapis.com/css?family=Lato|Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato|Ubuntu|Fira+Code&display=swap');
 
 /// Set text elements to have no margins.
 h1, h2, h3, p {
@@ -41,6 +41,13 @@ h1, h2, h3 {
   margin: 0 16px;
 }
 
+/// Subtitle
+.subtitle {
+  font-size: 18px;
+  opacity: .85;
+  padding: 4px 0 8px;
+}
+
 /// Center-align text.
 .text--center {
   text-align: center;
@@ -48,4 +55,9 @@ h1, h2, h3 {
 /// Right-align text.
 .text--right {
   text-align: right;
+}
+
+pre {
+  font-family: 'Fira Code', monospace;
+  font-size: 16px;
 }
